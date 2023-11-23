@@ -130,7 +130,9 @@ create table if not exists bookings.orders
     customer_id integer not null
         unique
         constraint orders_customers_id_fk
-            references bookings.customers,
+            references bookings.customers
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT,
     quantity    integer not null
 );
 
